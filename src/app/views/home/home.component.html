@@ -1,0 +1,49 @@
+<nz-layout style="height: 100%">
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzCollapsedWidth]="0" [nzBreakpoint]="'lg'">
+    <div class="logo">
+      <span style="color: #00a2ae;font-weight: bold">Docker</span>-Manage
+    </div>
+    <ul  nz-menu [nzTheme]="'dark'" [nzMode]="isCollapsed?'vertical':'inline'">
+      <li nz-menu-group>
+        <span title>控制面板</span>
+        <ul>
+          <li nz-menu-item [nzSelected]="currentRouterUrl ==='/home/dashboard'" routerLink="/home/dashboard"><span><i class="anticon anticon-dashboard"></i><span class="nav-text">DashBoard</span></span></li>
+        </ul>
+      </li>
+      <li nz-menu-group>
+        <span title>资源管理</span>
+        <ul>
+          <li nz-menu-item [nzSelected]="currentRouterUrl.indexOf('/home/container')!==-1" routerLink="/home/container"><span><i class="anticon anticon-api" ></i><span class="nav-text">Container</span></span></li>
+          <li nz-menu-item [nzSelected]="currentRouterUrl.indexOf('/home/image')!==-1" routerLink="/home/image"><span><i class="anticon anticon-pie-chart"></i><span class="nav-text">Image</span></span></li>
+          <li nz-menu-item [nzSelected]="currentRouterUrl.indexOf('/home/volume')!==-1" routerLink="/home/volume"><span><i class="anticon anticon-database"></i><span class="nav-text">Volume</span></span></li>
+          <li nz-menu-item [nzSelected]="currentRouterUrl.indexOf('/home/network')!==-1" routerLink="/home/network"><span><i class="anticon anticon-global"></i><span class="nav-text">Network</span></span></li>
+        </ul>
+      </li>
+      <li nz-menu-group>
+        <span title>设置</span>
+        <ul>
+          <li nz-menu-item [nzSelected]="currentRouterUrl.indexOf('/home/setting')!==-1" routerLink="/home/setting"><span><i class="anticon anticon-setting"></i><span class="nav-text">Setting</span></span></li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header style="background: #fff; padding:0;">
+      <nz-dropdown [nzTrigger]="'click'" style="float: right;margin: 0 20px" [nzPlacement]="'bottomRight'">
+        <div nz-dropdown style="cursor: pointer">
+          <nz-avatar nzText="Admin" style="vertical-align: middle;background-color:#00a2ae;margin-right: 10px"></nz-avatar>
+          <span>admin<i class="anticon anticon-down"></i></span>
+        </div>
+        <ul nz-menu style="width: 160px;">
+          <li nz-menu-item><i class="anticon anticon-user"></i>admin</li>
+          <li nz-menu-divider></li>
+          <li nz-menu-item><i class="anticon anticon-logout"></i>退出</li>
+        </ul>
+      </nz-dropdown>
+    </nz-header>
+    <nz-content style="margin:0 16px;">
+      <router-outlet></router-outlet>
+    </nz-content>
+    <nz-footer style="text-align: center;">Berry Cooper ©2018</nz-footer>
+  </nz-layout>
+</nz-layout>

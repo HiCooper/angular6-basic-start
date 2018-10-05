@@ -1,0 +1,85 @@
+<nz-breadcrumb style="margin:16px 0;">
+  <nz-breadcrumb-item>Home</nz-breadcrumb-item>
+  <nz-breadcrumb-item>Container</nz-breadcrumb-item>
+</nz-breadcrumb>
+<div style="padding:24px; background: #fff; min-height: 360px;">
+  <form nz-form [formGroup]="validateForm" class="ant-advanced-search-form">
+    <div nz-row [nzGutter]="24">
+      <div nz-col [nzSpan]="6" *ngFor="let control of controlArray">
+        <nz-form-item nzFlex *ngIf="control.type !=='select'">
+          <nz-form-label [nzFor]="control.label">{{control.label}}</nz-form-label>
+          <nz-form-control [nzSpan]="14">
+            <input nz-input [placeholder]="'请输入'+control.label" [formControlName]="control.prop"
+                   [attr.id]="control.index">
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item nzFlex *ngIf="control.type ==='select'">
+          <nz-form-label [nzFor]="control.label">{{control.label}}</nz-form-label>
+          <nz-form-control [nzSpan]="14">
+            <nz-select name="select-validate" [formControlName]="control.prop" nzAllowClear
+                       [nzPlaceHolder]="'请选择'+control.label">
+              <nz-option nzValue="exited" nzLabel="停止"></nz-option>
+              <nz-option nzValue="running" nzLabel="运行"></nz-option>
+              <nz-option nzValue="restarting" nzLabel="重启中"></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="6" style="line-height: 40px;">
+        <button nz-button [nzType]="'primary'" (click)="goSearch()" [nzLoading]="searchLoading"><i
+          class="anticon anticon-search"></i>搜索
+        </button>
+        <button nz-button (click)="resetForm()">重置</button>
+        <button nz-button (click)="getContainerList()"><i class="anticon anticon-sync"></i>刷新</button>
+      </div>
+    </div>
+  </form>
+  <div class="search-result-list">
+    <nz-table
+      #borderedTable
+      nzBordered
+      [nzPageSize]="8"
+      (nzPageSizeChange)="refreshStatus()"
+      (nzPageIndexChange)="refreshStatus()"
+      [nzData]="showContainerList">
+      <thead>
+      <tr>
+        <th nzShowCheckbox [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate"
+            (nzCheckedChange)="checkAll($event)"></th>
+        <th>CONTAINER ID</th>
+        <th>IMAGE</th>
+        <th>COMMAND</th>
+        <th>CREATED</th>
+        <th>STATUS</th>
+        <th>PORTS</th>
+        <th>NAMES</th>
+        <th>ACTION</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of borderedTable.data">
+        <td nzShowCheckbox [(nzChecked)]="data.checked" (nzCheckedChange)="refreshStatus($event)"></td>
+        <td>{{data.Id | slice:0:12}}</td>
+        <td>{{data.Image | slice:0:12}}</td>
+        <td>{{data.Command}}</td>
+        <td>{{data.Created+'000' | date:'yyyy/MM/dd HH:mm:ss'}}</td>
+        <td>{{data.Status}}</td>
+        <td>{{data.ports}}</td>
+        <td>{{data.Names}}</td>
+        <td>
+          <nz-dropdown-button [routerLink]="['/home/container-detail']" [queryParams]="{ id : data.Id}">
+            Inspect
+            <ul nz-menu>
+              <li nz-menu-item (click)="startContainer(data.Id)"><i class="anticon anticon-caret-right"></i>Run</li>
+              <li nz-menu-item (click)="stopContainer(data.Id)"><i class="anticon anticon-poweroff"></i>Stop</li>
+              <li nz-menu-item (click)="restartContainer(data.Id)"><i class="anticon anticon-reload"></i>Restart</li>
+              <li nz-menu-item (click)="removeContainer(data.Id)"><i class="anticon anticon-delete"></i>Remove</li>
+            </ul>
+          </nz-dropdown-button>
+        </td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </div>
+
+</div>
