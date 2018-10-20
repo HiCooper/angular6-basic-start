@@ -25,7 +25,7 @@ registerLocaleData(zh);
         BrowserAnimationsModule,
         NgZorroAntdModule,
         AppRoutingModule,
-        CoreModule.forRoot(),
+        CoreModule,
     ],
     bootstrap: [AppComponent],
     providers: [{provide: NZ_I18N, useValue: zh_CN}]

@@ -8,6 +8,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {ContainerComponent} from './container/container.component';
 import {ContainerDetailComponent} from './container/detail/container-detail.component';
 import {HomeComponent} from './home.component';
+import {CoreModule} from '../@core/core.module';
 
 @NgModule({
     imports: [
@@ -16,6 +17,7 @@ import {HomeComponent} from './home.component';
         ReactiveFormsModule,
         HomeRoutingModule,
         NgZorroAntdModule,
+        CoreModule
     ],
     declarations: [
         HomeComponent,
