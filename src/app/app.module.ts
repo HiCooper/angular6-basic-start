@@ -9,26 +9,26 @@ import {AppComponent} from './app.component';
 
 import {registerLocaleData} from '@angular/common';
 import zh from '@angular/common/locales/zh';
-import {HomeComponent} from './views/home/home.component';
+import {CoreModule} from './@core/core.module';
 
 registerLocaleData(zh);
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    NgZorroAntdModule,
-    AppRoutingModule
-  ],
-  bootstrap: [AppComponent],
-  providers: [{provide: NZ_I18N, useValue: zh_CN}]
+    declarations: [
+        AppComponent,
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        NgZorroAntdModule,
+        AppRoutingModule,
+        CoreModule.forRoot(),
+    ],
+    bootstrap: [AppComponent],
+    providers: [{provide: NZ_I18N, useValue: zh_CN}]
 })
 export class AppModule {
 }
