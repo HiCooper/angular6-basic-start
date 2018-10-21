@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --configuration hmr --open",
-    "build": "ng build --prod --base-href angular6-basic-start",
+    "build": "ng build --prod --build-optimizer --base-href angular6-basic-start",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
