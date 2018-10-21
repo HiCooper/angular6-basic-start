@@ -32,7 +32,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ng g ng-zorro-antd:[template] --name=NAME [options]
 ```
 #例如通过以下代码可以快速生成一个登陆框组件
-```ng g ng-zorro-antd:form-normal-login -p app --styleext='less' --name=login```
+```ng g ng-zorro-antd:form-normal-login -p app --styleext=less --name=login --path=src/app/views
 #生成组件参数
 
 `--name`
