@@ -41,7 +41,7 @@ export class CommonService {
      * }
      * @param opts 待处理对象
      */
-    static handlerParams(opts): object {
+    static handlerParams(opts): any {
         const temp = this.filterNull(opts);
         const keys = Object.keys(temp);
         const values = Object.values(temp);
@@ -60,7 +60,7 @@ export class CommonService {
      * 过滤对象中的空值，如 '' , null , undefined , []
      * @param opts 待处理对象
      */
-    static filterNull(opts): object {
+    static filterNull(opts): any {
         const temp = {};
         for (const i in opts) {
             if (!!opts && !!opts[i]) {

@@ -1,10 +1,16 @@
-.login-component {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  .login-form {
+.login-content {
+  height: calc(100%);
+  padding: 20px;
+
+  .login-title {
+    text-align: center;
+    line-height: 60px;
+    padding-top: 100px;
+  }
+
+  [nz-form] {
     max-width: 300px;
+    margin: 20px auto;
   }
 
   .login-form-forgot {
@@ -14,6 +20,5 @@
   .login-form-button {
     width: 100%;
   }
-}
 
-  
+}
