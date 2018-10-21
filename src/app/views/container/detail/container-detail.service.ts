@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
-import {CommonService} from '../../../share/common.service';
+import {CommonService} from '../../../@core/utils/common.service';
 
 
 @Injectable({

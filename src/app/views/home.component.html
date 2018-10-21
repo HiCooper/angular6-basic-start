@@ -30,7 +30,7 @@
                 </ul>
             </li>
             <li nz-menu-group>
-                <span title>设置{{9.19|ngxRound}}</span>
+                <span title>设置</span>
                 <ul>
                     <li nz-menu-item [nzSelected]="currentRouterUrl.indexOf('/home/setting')!==-1"
                         routerLink="/home/setting"><span><i class="anticon anticon-setting"></i><span class="nav-text">Setting</span></span>
@@ -53,6 +53,10 @@
                     <li nz-menu-item><i class="anticon anticon-logout"></i>退出</li>
                 </ul>
             </nz-dropdown>
+            <div class="language">
+                英语
+                <nz-switch [(ngModel)]="isEnglish" (ngModelChange)="changeLanguage()"></nz-switch>
+            </div>
         </nz-header>
         <nz-content style="margin:0 16px;">
             <router-outlet></router-outlet>

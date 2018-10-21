@@ -8,7 +8,7 @@ const appRoutes: Routes = [
     },
     {
         path: '',
-        redirectTo: 'home',
+        redirectTo: 'home/dashboard',
         pathMatch: 'full'
     },
     {

@@ -4,7 +4,8 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {ContainerComponent} from './container/container.component';
 import {ContainerDetailComponent} from './container/detail/container-detail.component';
 import {HomeComponent} from './home.component';
-
+import {LoginComponent} from './auth/login/login.component';
+import {RegisterComponent} from './auth/register/register.component';
 
 const homeRoutes: Routes = [
     {
@@ -25,6 +26,14 @@ const homeRoutes: Routes = [
             },
         ]
     },
+    {
+        path: 'login',
+        component: LoginComponent
+    },
+    {
+        path: 'register',
+        component: RegisterComponent
+    }
 
 ];
 

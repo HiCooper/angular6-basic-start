@@ -4,12 +4,12 @@ import {AppRoutingModule} from './app-routing.module';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {NgZorroAntdModule, NZ_I18N, zh_CN} from 'ng-zorro-antd';
 import {AppComponent} from './app.component';
 
 import {registerLocaleData} from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import {CoreModule} from './@core/core.module';
+import {ThemeModule} from './@theme/theme.module';
 
 registerLocaleData(zh);
 
@@ -23,12 +23,12 @@ registerLocaleData(zh);
         ReactiveFormsModule,
         HttpClientModule,
         BrowserAnimationsModule,
-        NgZorroAntdModule,
         AppRoutingModule,
         CoreModule,
+        ThemeModule
     ],
     bootstrap: [AppComponent],
-    providers: [{provide: NZ_I18N, useValue: zh_CN}]
+    providers: []
 })
 export class AppModule {
 }

@@ -3,14 +3,14 @@ import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {CapitalizePipe, PluralPipe, RoundPipe, TimingPipe} from './pipes';
 
-export const corePipe = [
+const corePipe = [
     CapitalizePipe,
     PluralPipe,
     RoundPipe,
     TimingPipe,
 ];
 
-export const coreProvider = [
+const coreProvider = [
     AnalyticsService,
 ];
 
